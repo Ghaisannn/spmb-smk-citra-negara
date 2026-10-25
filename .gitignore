@@ -1,0 +1,32 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# build
+/build
+
+# environment (JANGAN pernah di-commit)
+.env
+.env.*
+!.env.example
+
+# data siswa: berkas dan bukti transfer
+/storage/
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# misc
+.DS_Store
+*.pem
+*.tsbuildinfo
+.vercel
