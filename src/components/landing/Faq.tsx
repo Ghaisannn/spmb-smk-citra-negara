@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const faqs = [
@@ -36,48 +37,49 @@ export default function Faq() {
   return (
     <section id="faq" className="scroll-mt-24 bg-white py-20">
       <Container>
-        <SectionHeading
-          label="PUSAT BANTUAN"
-          title="Pertanyaan yang Sering Diajukan"
-          subtitle="Temukan jawaban cepat seputar tata cara pendaftaran dan sistem seleksi online SPMB"
-        />
+        <Reveal>
+          <SectionHeading
+            label="PUSAT BANTUAN"
+            title="Pertanyaan yang Sering Diajukan"
+            subtitle="Temukan jawaban cepat seputar tata cara pendaftaran dan sistem seleksi online SPMB"
+          />
+        </Reveal>
 
         <div className="mx-auto mt-12 max-w-[940px] space-y-4">
           {faqs.map(({ q, a }, i) => {
             const isOpen = openItems.includes(i);
             return (
-              <div
-                key={q}
-                className="rounded-2xl border border-brand-100 bg-brand-50/80"
-              >
-                <button
-                  type="button"
-                  onClick={() => toggle(i)}
-                  aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
-                >
-                  <span className="text-[15px] font-bold leading-snug text-ink">
-                    {q}
-                  </span>
-                  <ChevronDown
-                    size={18}
-                    className={`shrink-0 text-ink/70 transition-transform duration-300 ${
-                      isOpen ? "rotate-180" : ""
+              <Reveal key={q} delay={i * 80}>
+                <div className="lift rounded-2xl border border-brand-100 bg-brand-50/80">
+                  <button
+                    type="button"
+                    onClick={() => toggle(i)}
+                    aria-expanded={isOpen}
+                    className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                  >
+                    <span className="text-[15px] font-bold leading-snug text-ink">
+                      {q}
+                    </span>
+                    <ChevronDown
+                      size={18}
+                      className={`shrink-0 text-ink/70 transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  <div
+                    className={`grid transition-all duration-300 ${
+                      isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                     }`}
-                  />
-                </button>
-                <div
-                  className={`grid transition-all duration-300 ${
-                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p className="px-6 pb-5 text-[13px] leading-relaxed text-muted">
-                      {a}
-                    </p>
+                  >
+                    <div className="overflow-hidden">
+                      <p className="px-6 pb-5 text-[13px] leading-relaxed text-muted">
+                        {a}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>

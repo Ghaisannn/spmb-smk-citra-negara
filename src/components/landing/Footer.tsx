@@ -1,4 +1,5 @@
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 import Logo from "./Logo";
 
 const quickLinks = [
@@ -22,7 +23,7 @@ export default function Footer() {
     <footer id="kontak" className="scroll-mt-24 border-t border-line bg-white">
       <Container>
         <div className="grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.3fr_1.3fr]">
-          <div>
+          <Reveal>
             <Logo variant="footer" />
             <p className="mt-4 max-w-[300px] text-[12.5px] leading-relaxed text-muted">
               Lembaga Pendidikan Vokasi Unggulan Berwawasan Teknologi dan
@@ -33,9 +34,9 @@ export default function Footer() {
               <span className="size-1.5 rounded-full bg-brand-500" />
               Terakreditasi A (Unggul)
             </span>
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={100}>
             <h4 className="text-[15px] font-bold text-ink">Tautan Cepat</h4>
             <ul className="mt-4 space-y-2.5">
               {quickLinks.map((l) => (
@@ -49,9 +50,9 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={200}>
             <h4 className="text-[15px] font-bold text-ink">Program Keahlian</h4>
             <ul className="mt-4 space-y-2.5">
               {programs.map((p) => (
@@ -60,9 +61,9 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={300}>
             <h4 className="text-[15px] font-bold text-ink">Sekretariat SPMB</h4>
             <ul className="mt-4 space-y-2.5 text-[12.5px] leading-relaxed text-muted">
               <li>
@@ -72,7 +73,7 @@ export default function Footer() {
               <li>WhatsApp: +62 812–3456–7890</li>
               <li>Email: spmb@smkcitranegara.sch.id</li>
             </ul>
-          </div>
+          </Reveal>
         </div>
 
         <div className="flex flex-col gap-3 border-t border-line py-6 text-[11.5px] text-muted md:flex-row md:items-center md:justify-between">

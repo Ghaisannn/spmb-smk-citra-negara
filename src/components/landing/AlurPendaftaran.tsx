@@ -12,6 +12,7 @@ import {
   UserPlus,
 } from "lucide-react";
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const steps = [
@@ -69,35 +70,36 @@ export default function AlurPendaftaran() {
   return (
     <section id="alur" className="scroll-mt-24 bg-white py-20">
       <Container>
-        <SectionHeading
-          label="PROSEDUR SPMB"
-          title="Alur Pendaftaran SPMB"
-          subtitle="6 Langkah mudah untuk bergabung bersama keluarga besar SMK Citra Negara Depok"
-        />
+        <Reveal>
+          <SectionHeading
+            label="PROSEDUR SPMB"
+            title="Alur Pendaftaran SPMB"
+            subtitle="6 Langkah mudah untuk bergabung bersama keluarga besar SMK Citra Negara Depok"
+          />
+        </Reveal>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {steps.map(({ no, icon: Icon, title, desc, metaIcon: MetaIcon, meta }) => (
-            <div
-              key={no}
-              className="flex flex-col rounded-2xl border border-brand-100 bg-brand-50/70 p-7"
-            >
-              <div className="flex items-start justify-between">
-                <span className="text-[52px] font-medium leading-none text-soft">
-                  {no}
-                </span>
-                <Icon size={20} className="text-ink/70" />
-              </div>
-              <h3 className="mt-5 text-[18px] font-bold text-ink">{title}</h3>
-              <p className="mt-2 text-[13px] leading-relaxed text-muted">
-                {desc}
-              </p>
-              <div className="mt-auto pt-6">
-                <div className="flex items-center gap-2 rounded-lg bg-white px-3.5 py-2.5 text-[12px] font-semibold text-ink/80">
-                  <MetaIcon size={14} className="text-brand-600" />
-                  {meta}
+          {steps.map(({ no, icon: Icon, title, desc, metaIcon: MetaIcon, meta }, i) => (
+            <Reveal key={no} delay={(i % 3) * 110} className="h-full">
+              <div className="lift flex h-full flex-col rounded-2xl border border-brand-100 bg-brand-50/70 p-7">
+                <div className="flex items-start justify-between">
+                  <span className="text-[52px] font-medium leading-none text-soft">
+                    {no}
+                  </span>
+                  <Icon size={20} className="text-ink/70" />
+                </div>
+                <h3 className="mt-5 text-[18px] font-bold text-ink">{title}</h3>
+                <p className="mt-2 text-[13px] leading-relaxed text-muted">
+                  {desc}
+                </p>
+                <div className="mt-auto pt-6">
+                  <div className="flex items-center gap-2 rounded-lg bg-white px-3.5 py-2.5 text-[12px] font-semibold text-ink/80">
+                    <MetaIcon size={14} className="text-brand-600" />
+                    {meta}
+                  </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </Container>
