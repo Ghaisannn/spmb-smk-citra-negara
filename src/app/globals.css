@@ -98,3 +98,73 @@ body {
     transform: none;
   }
 }
+
+/* ===== Efek hover portal admin ===== */
+.admin-main :is(
+    div.grid[class*="xl:grid-cols-4"],
+    div.grid[class*="md:grid-cols-3"]
+  ) > div,
+.admin-main article,
+.admin-main [class*="bg-[#f1f8f3]"],
+.admin-main a[href^="/dashboard/admin/verifikasi/"][class*="bg-wash"] {
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.28s ease,
+    background-color 0.2s ease;
+}
+
+.admin-main :is(a, button)[class*="bg-forest"] {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.admin-nav a {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  /* Kartu statistik */
+  .admin-main :is(
+      div.grid[class*="xl:grid-cols-4"],
+      div.grid[class*="md:grid-cols-3"]
+    ) > div:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(20, 114, 57, 0.14);
+  }
+
+  /* Kartu daftar: jadwal, akun, program, pengumuman */
+  .admin-main article:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(20, 114, 57, 0.12);
+  }
+
+  /* Kartu tugas di dashboard */
+  .admin-main [class*="bg-[#f1f8f3]"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(20, 114, 57, 0.1);
+  }
+
+  /* Item aktivitas terbaru */
+  .admin-main a[href^="/dashboard/admin/verifikasi/"][class*="bg-wash"]:hover {
+    transform: translateX(4px);
+  }
+
+  /* Tombol hijau */
+  .admin-main :is(a, button)[class*="bg-forest"]:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 92, 52, 0.32);
+  }
+  .admin-main :is(a, button)[class*="bg-forest"]:not(:disabled):active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 92, 52, 0.25);
+  }
+
+  /* Menu sidebar yang tidak aktif */
+  .admin-nav a:not([class*="bg-nav"]):hover {
+    transform: translateX(4px);
+  }
+}

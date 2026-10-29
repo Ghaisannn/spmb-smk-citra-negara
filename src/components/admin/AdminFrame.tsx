@@ -67,7 +67,7 @@ export default function AdminFrame({ children }: { children: React.ReactNode }) 
         Menu Utama
       </p>
 
-      <nav className="mt-2 flex-1 space-y-1 overflow-y-auto px-5">
+      <nav className="admin-nav mt-2 flex-1 space-y-1 overflow-y-auto px-5">
         {menu.map(({ label, href, icon: Icon, exact }) => {
           const active = exact ? pathname === href : pathname.startsWith(href);
           return (
@@ -151,7 +151,7 @@ export default function AdminFrame({ children }: { children: React.ReactNode }) 
           </div>
         </header>
 
-        <main className="flex-1 p-4 sm:p-6">{children}</main>
+        <main className="admin-main flex-1 p-4 sm:p-6">{children}</main>
       </div>
     </div>
   );
